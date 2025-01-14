@@ -10,8 +10,9 @@ import { InMemoryPersistenceModule } from './alarm/infrasctructure/persistence/i
 import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { AlarmEntity } from './alarm/infrasctructure/persistence/orm/entities/alarm.entity';
+import { CqrsModule } from '@nestjs/cqrs';
 @Module({
-  imports: [AlarmModule, CoreModule],
+  imports: [CqrsModule.forRoot(), AlarmModule, CoreModule],
   controllers: [AppController],
   providers: [AppService],
 })
